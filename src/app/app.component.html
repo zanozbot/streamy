@@ -1,13 +1,31 @@
-<nav class="container has-box-shadow has-background-primary" role="navigation" aria-label="Station selector">
-  <a class="nav-items is-flex has-height-100">
-    <div
-      class="nav-item has-align-self-center has-flex-1 is-uppercase has-text-white is-size-6 has-text-weight-semibold">
-      Obala
-    </div>
-    <span class="icon has-align-self-center has-text-white">
-      <i class="fas fa-chevron-down"></i>
-    </span>
-  </a>
+<nav (click)="navExtended = !navExtended" class="container has-box-shadow has-background-primary" role="navigation"
+  aria-label="Station selector">
+  <ul class="nav-items has-height-100">
+    <li class="nav-item">
+      <a class="is-uppercase has-height-100 has-width-100 is-flex has-text-white is-size-6 has-text-weight-semibold">
+        <span class="has-flex-1">Osrednje Slovenska</span>
+        <span class="icon" *ngIf="!navExtended">
+          <i class="fas fa-chevron-down"></i>
+        </span>
+        <span class="icon" *ngIf="navExtended">
+          <i class="fas fa-chevron-up"></i>
+        </span>
+      </a>
+    </li>
+    <ng-container *ngIf="navExtended">
+      <li class="nav-item">
+        <a class="is-uppercase has-height-100 has-width-100 is-flex has-text-white is-size-6 has-text-weight-semibold">
+          <span>Obala</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="is-uppercase has-height-100 has-width-100 has-text-white is-size-6 has-text-weight-semibold">Obala</a>
+      </li>
+      <li class="nav-item">
+        <a class="is-uppercase has-height-100 has-width-100 has-text-white is-size-6 has-text-weight-semibold">Obala</a>
+      </li>
+    </ng-container>
+  </ul>
 </nav>
 
 <section class="section">

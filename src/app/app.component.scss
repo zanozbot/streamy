@@ -1,12 +1,10 @@
 nav {
-  height: 64px;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
 
   .nav-items {
-    padding: 0 30px;
     .nav-item {
-      align-self: center;
+      padding: 16px 32px;
     }
   }
 }
