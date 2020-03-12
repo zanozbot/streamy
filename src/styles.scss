@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+// Importing Poppins font
+@import url('https://fonts.googleapis.com/css?family=Poppins:500,600,700&display=swap');
+
+@import "variables.scss";
+@import "bulma/bulma.sass";
+
+.has-height-100 {
+  height: 100%;
+}
+
+.has-text-secondary {
+  color: $secondary;
+}
+
+.has-border-radius {
+  border-radius: $border-radius;
+}
+
+.has-align-self-center {
+  align-self: center;
+}
+
+.has-flex-1 {
+  flex: 1
+}
+
+.has-box-shadow {
+  box-shadow: $box-shadow;
+}
+
+.icon.is-medium {
+  svg {
+    width: 2rem;
+    height: 100%;
+  }
+}

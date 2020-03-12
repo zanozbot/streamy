@@ -1,0 +1,35 @@
+nav {
+  height: 64px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  .nav-items {
+    padding: 0 30px;
+    .nav-item {
+      align-self: center;
+    }
+  }
+}
+
+.card .card-content {
+  .tags {
+    margin-bottom: 0.5rem;
+  }
+
+  .title:not(.is-spaced) + .subtitle {
+    margin-top: -1rem;
+  }
+}
+
+.fab-button {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-right: 1.5rem;
+}
+
+.is-container-fixed {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 0;
+  left: 0;
+}
