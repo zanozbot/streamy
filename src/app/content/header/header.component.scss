@@ -1,18 +1,22 @@
 nav {
   border-bottom-left-radius: 32px;
   border-bottom-right-radius: 32px;
-
+  position: sticky;
+  top: 0;
   z-index: 2;
 
   .nav-items {
     .nav-item a {
       padding: 16px 32px;
-
-      span.station-name {
-        margin-right: 0.5rem;
-      }
     }
   }
+}
+
+.station-name {
+  margin-right: 0.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .icon.extend {

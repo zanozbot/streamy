@@ -1,8 +1,22 @@
 // Importing Poppins font
 @import url('https://fonts.googleapis.com/css?family=Poppins:500,600,700&display=swap');
 
+// Importing bulma's initial variables
+@import "bulma/sass/utilities/initial-variables";
+@import "bulma/sass/utilities/functions";
+
+// Importing custom variables
 @import "variables.scss";
-@import "bulma/bulma.sass";
+
+// Adding custom color variables to the color map.
+@import "bulma/sass/utilities/derived-variables";
+$secondary-invert: findColorInvert($secondary) !default;
+$custom-colors: (
+    "secondary":($secondary, $secondary-invert),
+);
+$colors: map-merge($colors, $custom-colors);
+
+@import "bulma/bulma";
 
 .has-height-100 {
   height: 100%;
