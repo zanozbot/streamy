@@ -7,8 +7,16 @@ import { Station } from 'src/models/station.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
+
+  /**
+   * Controls the extension of the navigation
+   */
   public navExtended: boolean;
 
+  /**
+   * All of the available stations
+   * Replace this with your links
+   */
   public stations: Station[] = [
     {
       name: 'Osrednje slovenska',
@@ -35,26 +43,49 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   ];
 
+  /**
+   * Currently selected station
+   */
   public selectedStation: Station;
 
+  /**
+   * Audio element
+   */
   public player: HTMLAudioElement;
 
+  /**
+   * Initialize station
+   */
   ngOnInit(): void {
     this.selectedStation = this.stations[0];
   }
 
+  /**
+   * Gets the reference to the audio element inside of a timeout function
+   * to prevent ExpressionChangedAfterItHasBeenCheckedError
+   */
   ngAfterViewInit(): void {
-    this.player = document.getElementById('player') as HTMLAudioElement;
-    this.player.play();
+    setTimeout(() => {
+      this.player = document.getElementById('player') as HTMLAudioElement;
+      this.player.play();
+    }, 0);
+
   }
 
+  /**
+   * Changes the selected station and resets player
+   *
+   * @param station Selected station
+   */
   public changeStation(station: Station) {
     this.selectedStation = station;
-    this.player.pause();
     this.player.src = station.stream;
     this.player.play();
   }
 
+  /**
+   * Toggles the play time
+   */
   public togglePlayer() {
     if (this.player.paused) {
       this.player.play();
