@@ -5,10 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HeaderComponent } from './content/header/header.component';
+import { PlayerComponent } from './content/player/player.component';
+import { FloatingButtonComponent } from './content/floating-button/floating-button.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    PlayerComponent,
+    FloatingButtonComponent
   ],
   imports: [
     BrowserModule,

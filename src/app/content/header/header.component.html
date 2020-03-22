@@ -1,0 +1,29 @@
+<nav (click)="isExtended = !isExtended" class="container has-box-shadow has-background-primary" role="navigation"
+  aria-label="Station selector">
+  <ul class="nav-items has-height-100">
+    <li class="nav-item">
+      <a class="is-uppercase has-height-100 has-width-100 is-flex has-text-white is-size-6 has-text-weight-semibold">
+        <span class="station-name">{{ currentStation.name }}</span>
+        <span class="icon">
+          <i class="fas fa-music"></i>
+        </span>
+        <span class="icon extend" *ngIf="!isExtended">
+          <i class="fas fa-chevron-down"></i>
+        </span>
+        <span class="icon extend" *ngIf="isExtended">
+          <i class="fas fa-chevron-up"></i>
+        </span>
+      </a>
+    </li>
+    <ng-container *ngIf="isExtended">
+      <ng-container *ngFor="let station of stations">
+        <li class="nav-item" *ngIf="station !== currentStation" (click)="playerService.changeStation(station)">
+          <a
+            class="is-uppercase has-height-100 has-width-100 is-flex has-text-white is-size-6 has-text-weight-semibold">
+            <span>{{ station.name }}</span>
+          </a>
+        </li>
+      </ng-container>
+    </ng-container>
+  </ul>
+</nav>
