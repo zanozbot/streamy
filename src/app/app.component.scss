@@ -3,10 +3,19 @@ nav {
   border-bottom-right-radius: 32px;
 
   .nav-items {
-    .nav-item {
+    .nav-item a {
       padding: 16px 32px;
+
+      span.station-name {
+        margin-right: 0.5rem;
+      }
     }
   }
+}
+
+.icon.extend {
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .card .card-content {

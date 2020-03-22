@@ -3,30 +3,34 @@
   <ul class="nav-items has-height-100">
     <li class="nav-item">
       <a class="is-uppercase has-height-100 has-width-100 is-flex has-text-white is-size-6 has-text-weight-semibold">
-        <span class="has-flex-1">Osrednje Slovenska</span>
-        <span class="icon" *ngIf="!navExtended">
+        <span class="station-name">{{ selectedStation.name }}</span>
+        <span class="icon">
+          <i class="fas fa-music"></i>
+        </span>
+        <span class="icon extend" *ngIf="!navExtended">
           <i class="fas fa-chevron-down"></i>
         </span>
-        <span class="icon" *ngIf="navExtended">
+        <span class="icon extend" *ngIf="navExtended">
           <i class="fas fa-chevron-up"></i>
         </span>
       </a>
     </li>
     <ng-container *ngIf="navExtended">
-      <li class="nav-item">
-        <a class="is-uppercase has-height-100 has-width-100 is-flex has-text-white is-size-6 has-text-weight-semibold">
-          <span>Obala</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="is-uppercase has-height-100 has-width-100 has-text-white is-size-6 has-text-weight-semibold">Obala</a>
-      </li>
-      <li class="nav-item">
-        <a class="is-uppercase has-height-100 has-width-100 has-text-white is-size-6 has-text-weight-semibold">Obala</a>
-      </li>
+      <ng-container *ngFor="let station of stations">
+        <li class="nav-item" *ngIf="station !== selectedStation" (click)="changeStation(station)">
+          <a
+            class="is-uppercase has-height-100 has-width-100 is-flex has-text-white is-size-6 has-text-weight-semibold">
+            <span>{{ station.name }}</span>
+          </a>
+        </li>
+      </ng-container>
     </ng-container>
   </ul>
 </nav>
+
+<audio id="player" preload="all">
+  <source [src]="selectedStation.stream">
+</audio>
 
 <section class="section">
   <div class="container">
@@ -92,10 +96,15 @@
 </section>
 
 <div class="container is-container-fixed has-text-right">
-  <button class="button has-box-shadow fab-button is-primary is-rounded">
-    <span class="icon is-small">
-      <i class="fas fa-pause"></i>
+  <button (click)="togglePlayer()" class="button has-box-shadow fab-button is-primary is-rounded">
+    <span class="icon is-small" *ngIf="player?.paused; else playing">
+      <i class="fas fa-play"></i>
     </span>
+    <ng-template #playing>
+      <span class="icon is-small">
+        <i class="fas fa-pause"></i>
+      </span>
+    </ng-template>
   </button>
 </div>
 
