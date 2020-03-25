@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from 'src/app/services/player.service';
 import { Observable } from 'rxjs';
+import { Song } from 'src/models/song.model';
 
 @Component({
   selector: 'app-last-played',
@@ -14,7 +15,7 @@ export class LastPlayedComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public get lastSongs$(): Observable<any> {
+  public get lastSongs$(): Observable<Song> {
     return this.playerService.getLastSongs$();
   }
 

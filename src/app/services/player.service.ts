@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { stations } from 'src/data/stations.data';
 import { BehaviorSubject, Observable, timer, of, race } from 'rxjs';
-import { switchMap, map, catchError } from 'rxjs/operators';
+import { switchMap, map, catchError, filter } from 'rxjs/operators';
 import { Station } from 'src/models/station.model';
 import { HttpClient } from '@angular/common/http';
+import { Song } from 'src/models/song.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class PlayerService {
   /**
    * Holds the returned data from an API
    */
-  private lastSongs$: Observable<any>;
+  private lastSongs$: Observable<Song>;
 
   /**
    * Initialize the station
@@ -38,6 +39,9 @@ export class PlayerService {
           // In this case API returns songs wrapped inside data property, thus
           // we use mapped to get them
           map(res => res.data),
+          // You can also filter some data if you wish not to display it
+          // e.g. only get the elements with author property set
+          map(res => res.filter(song => song.author)),
           // If we get any errors we outut them and return empty array
           catchError(error => { console.error(error); return of([]); })
         ))
@@ -47,7 +51,7 @@ export class PlayerService {
   /**
    * Returns the last songs obserable
    */
-  public getLastSongs$(): Observable<any> {
+  public getLastSongs$(): Observable<Song> {
     return this.lastSongs$;
   }
 

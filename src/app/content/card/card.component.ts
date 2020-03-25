@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Song } from 'src/models/song.model';
 
 @Component({
   selector: 'app-card',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardComponent implements OnInit {
 
   @Input()
-  public song: any;
+  public song: Song;
 
   @Input()
   public index: number;
