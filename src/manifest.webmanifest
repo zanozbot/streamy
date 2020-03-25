@@ -1,8 +1,7 @@
 {
   "name": "Streamy - Onlne Radio PWA",
   "short_name": "Streamy",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "background_color": "#F0F0F0",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
