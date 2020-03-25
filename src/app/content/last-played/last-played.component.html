@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div class="columns" *ngFor="let song of lastSongs$ | async; let i = index">
+    <div class="columns" *ngFor="let song of lastSongs$ | async; let i = index" @fade>
       <div class="column">
         <app-card [index]="i" [song]="song"></app-card>
       </div>
