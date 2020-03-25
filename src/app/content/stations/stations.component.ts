@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { stations } from 'src/data/stations.data';
 import { Station } from 'src/models/station.model';
 import { PlayerService } from 'src/app/services/player.service';
