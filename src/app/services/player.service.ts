@@ -44,6 +44,9 @@ export class PlayerService {
     );
   }
 
+  /**
+   * Returns the last songs obserable
+   */
   public getLastSongs$(): Observable<any> {
     return this.lastSongs$;
   }
@@ -82,6 +85,10 @@ export class PlayerService {
     this.player.play();
   }
 
+  /**
+   * Returns the last selected station from local storage
+   * or first one from your list
+   */
   private getStationFromLocalStorage(): Station {
     const station = localStorage.getItem('streamy_current_station');
     if (station) {
