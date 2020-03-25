@@ -6,4 +6,14 @@
   .title:not(.is-spaced) + .subtitle {
     margin-top: -1rem;
   }
+
+  .fa-youtube {
+    transition: color 250ms ease;
+  }
+}
+
+.card:hover {
+  .fa-youtube {
+    color: #FF0000;
+  }
 }
