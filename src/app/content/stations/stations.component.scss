@@ -1,0 +1,13 @@
+button:not(:last-child) {
+  margin-right: 1rem;
+}
+
+button {
+  font-size: 0.9rem;
+}
+
+.stations {
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap;
+}

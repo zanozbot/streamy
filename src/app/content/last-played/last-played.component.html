@@ -1,6 +1,12 @@
 <section class="section">
   <div class="container">
 
+    <div class="columns">
+      <div class="column">
+        <app-stations></app-stations>
+      </div>
+    </div>
+
     <div class="columns" *ngFor="let song of lastSongs$ | async; let i = index">
       <div class="column">
         <app-card [index]="i" [song]="song"></app-card>
