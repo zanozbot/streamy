@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './content/card/card.component';
 import { LastPlayedComponent } from './content/last-played/last-played.component';
 import { StationsComponent } from './content/stations/stations.component';
+import { NotFoundComponent } from './content/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { StationsComponent } from './content/stations/stations.component';
     FloatingButtonComponent,
     CardComponent,
     LastPlayedComponent,
-    StationsComponent
+    StationsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

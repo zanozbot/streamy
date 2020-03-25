@@ -7,11 +7,22 @@
       </div>
     </div>
 
-    <div class="columns" *ngFor="let song of lastSongs$ | async; let i = index" @fade>
-      <div class="column">
-        <app-card [index]="i" [song]="song"></app-card>
+    <ng-container *ngIf="lastSongs$ | async as lastSongs">
+      <ng-container *ngIf="lastSongs.length > 0; else noResults">
+        <div class="columns" *ngFor="let song of lastSongs; let i = index" @fade>
+          <div class="column">
+            <app-card [index]="i" [song]="song"></app-card>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+    <ng-template #noResults>
+      <div class="columns" @fade>
+        <div class="column">
+          <app-not-found></app-not-found>
+        </div>
       </div>
-    </div>
+    </ng-template>
 
   </div>
 </section>

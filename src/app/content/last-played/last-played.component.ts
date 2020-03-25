@@ -9,7 +9,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   templateUrl: './last-played.component.html',
   styleUrls: ['./last-played.component.scss'],
   animations: [
-    // the fade-in/fade-out animation.
+    // the fade-in animation.
     trigger('fade', [
       // the "in" style determines the "resting" state of the element when it is visible.
       state('in', style({ opacity: 1 })),
@@ -17,10 +17,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       transition(':enter', [
         style({ opacity: 0 }),
         animate('250ms ease')
-      ]),
-      // fade out when destroyed. this could also be written as transition('void => *')
-      transition(':leave',
-        animate('250ms ease', style({ opacity: 0 })))
+      ])
     ])
   ]
 })
