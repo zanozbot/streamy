@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { appName, appIconPath } from 'src/data/content.data';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+
+  public appName: string = appName;
+  public appIconPath: string = appIconPath;
 
   constructor() { }
 
