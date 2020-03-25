@@ -1,5 +1,5 @@
 <div class="stations">
   <button class="button is-rounded" *ngFor="let station of stations"
-    [ngClass]="{'is-secondary': currentStation.name === station.name}"
+    [ngClass]="{'is-secondary selected': currentStation.name === station.name}"
     (click)="playerService.changeStation(station)">{{ station.name }}</button>
 </div>

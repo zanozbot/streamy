@@ -43,7 +43,7 @@ export class PlayerService {
           // e.g. only get the elements with author property set
           map(res => res.filter(song => song.author)),
           // If we get an error we return an empty array
-          catchError(error => of([]))
+          catchError(() => of([]))
         ))
     );
   }
