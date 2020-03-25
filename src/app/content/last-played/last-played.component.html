@@ -1,0 +1,11 @@
+<section class="section">
+  <div class="container">
+
+    <div class="columns" *ngFor="let song of lastSongs$ | async; let i = index">
+      <div class="column">
+        <app-card [index]="i" [song]="song"></app-card>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,16 @@
+<div class="card has-border-radius">
+  <div class="card-content">
+    <div class="tags is-flex">
+      <span class="tag is-primary is-uppercase"> {{ index === 0 ? 'Last played' : song.time }}</span>
+      <span class="tag is-white">
+        <span class="icon has-text-grey is-medium">
+          <i class="fab fa-youtube"></i>
+        </span>
+      </span>
+    </div>
+    <div class="title has-text-weight-bold" [ngClass]="{'is-size-4': index > 0}">{{ song.title }}</div>
+    <div class="subtitle is-size-6"
+      [ngClass]="{'has-text-weight-semibold has-text-secondary': index === 0, 'has-text-weight-medium has-text-grey': index > 0}">
+      {{ song.author }}</div>
+  </div>
+</div>
