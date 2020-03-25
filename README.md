@@ -1,6 +1,7 @@
-# RadioPwa
+# Streamy - Multiple Radio Stations PWA
+> Streamy is a beautifully designed Progressive Web App for streaming multiple radio stations.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
+Streamy was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
 
 ## Development server
 
