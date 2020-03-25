@@ -4,6 +4,7 @@ button:not(:last-child) {
 
 button {
   font-size: 0.9rem;
+  transition: all 250ms ease;
 }
 
 .stations {
