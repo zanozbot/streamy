@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Song } from 'src/models/song.model';
+import { lastPlayedText } from 'src/data/content.data';
 
 @Component({
   selector: 'app-card',
@@ -13,6 +14,8 @@ export class CardComponent implements OnInit {
 
   @Input()
   public index: number;
+
+  public lastPlayedText: string = lastPlayedText;
 
   public link: string;
 

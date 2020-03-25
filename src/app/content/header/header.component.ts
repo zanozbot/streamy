@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { appName, appIconPath } from 'src/data/content.data';
+import { appName } from 'src/data/content.data';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,6 @@ import { appName, appIconPath } from 'src/data/content.data';
 export class HeaderComponent implements OnInit {
 
   public appName: string = appName;
-  public appIconPath: string = appIconPath;
 
   constructor() { }
 
