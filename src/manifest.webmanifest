@@ -2,6 +2,7 @@
   "name": "Streamy - Multiple Radio Stations PWA",
   "short_name": "Streamy",
   "background_color": "#F0F0F0",
+  "theme_color": "004C9C",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
