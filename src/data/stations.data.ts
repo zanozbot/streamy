@@ -6,26 +6,18 @@ import { Station } from 'src/models/station.model';
  */
 export const stations: Station[] = [
   {
-    name: 'Osrednje slovenska',
-    stream: 'http://stream.radioaktual.si/Aktual',
-    lastSongsPath: 'http://api2.kme.si/v2/radio-live/aktual'
+    name: 'Classic Rock Florida HD',
+    stream: 'http://198.58.98.83:8258/stream',
+    lastSongsPath: 'http://198.58.98.83:8258/played?type=json'
   },
   {
-    name: 'Obala',
-    stream: 'http://stream.radioaktual.si/AktualO',
-    lastSongsPath: 'http://api2.kme.si/v2/radio-live/aktual-osrednja'
+    name: 'Dance UK Radio',
+    stream: 'http://uk2.internet-radio.com:8024/stream',
+    lastSongsPath: 'http://uk2.internet-radio.com:8024/played?type=json'
   },
   {
-    name: 'Studio D',
-    stream: 'http://stream.radioaktual.si/AktualD',
-    lastSongsPath: 'http://api2.kme.si/v2/radio-live/aktual-osrednja'
-  },
-  {
-    name: 'Dalmacija',
-    stream: 'http://stream.radioaktual.si/AktualDalmacija'
-  },
-  {
-    name: 'Latino',
-    stream: 'http://stream.radioaktual.si/AktualLatino'
+    name: 'Pigpen Radio',
+    stream: 'http://178.79.158.160:8213/stream',
+    lastSongsPath: 'http://178.79.158.160:8213/played?type=json'
   }
 ];

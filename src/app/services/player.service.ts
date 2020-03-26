@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { stations } from 'src/data/stations.data';
 import { BehaviorSubject, Observable, timer, of, race } from 'rxjs';
-import { switchMap, map, catchError, filter } from 'rxjs/operators';
+import { switchMap, map, catchError } from 'rxjs/operators';
 import { Station } from 'src/models/station.model';
 import { HttpClient } from '@angular/common/http';
 import { Song } from 'src/models/song.model';
+import { SHOUTcast } from 'src/models/shoutcast.model';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +26,7 @@ export class PlayerService {
   /**
    * Holds the returned data from an API
    */
-  private lastSongs$: Observable<Song>;
+  private lastSongs$: Observable<Song[]>;
 
   /**
    * Initialize the station
@@ -35,23 +37,42 @@ export class PlayerService {
     // Responsible for polling data from the API every two minutes
     this.lastSongs$ = race(timer(0, 60 * 2 * 1000), this.station$).pipe(
       switchMap(() =>
-        this.http.get<any>(this.station$.getValue().lastSongsPath).pipe(
-          // In this case API returns songs wrapped inside data property, thus
-          // we use mapped to get them
-          map(res => res.data),
-          // You can also filter some data if you wish not to display it
-          // e.g. only get the elements with author property set
-          map(res => res.filter(song => song.author)),
+        this.http.jsonp<any>(this.station$.getValue().lastSongsPath, 'callback').pipe(
+          // If you API return the array of object wrapped into data
+          // map(res => res.data),
+          // Since the data is not in the correct format we pass each element
+          // into the function to correct it
+          map(res => res.map(row => this.transformSHOUTcastToSong(row))),
           // If we get an error we return an empty array
           catchError(() => of([]))
-        ))
+      ))
     );
+  }
+
+  /**
+   * Transforms SHOUTcast row into our own Song model
+   *
+   * @param element SHOUTcast row
+   */
+  private transformSHOUTcastToSong(row: SHOUTcast): Song {
+    const authorAndTitle = row.title.split(' - ');
+    const author = authorAndTitle[0];
+    const title = authorAndTitle[1];
+    const time = moment.unix(row.playedat).local().format('H:mm');
+
+    const song = {
+      title,
+      author,
+      time
+    };
+
+    return song;
   }
 
   /**
    * Returns the last songs obserable
    */
-  public getLastSongs$(): Observable<Song> {
+  public getLastSongs$(): Observable<Song[]> {
     return this.lastSongs$;
   }
 

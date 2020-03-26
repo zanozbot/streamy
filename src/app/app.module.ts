@@ -8,7 +8,7 @@ import { HeaderComponent } from './content/header/header.component';
 import { PlayerComponent } from './content/player/player.component';
 import { FloatingButtonComponent } from './content/floating-button/floating-button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { CardComponent } from './content/card/card.component';
 import { LastPlayedComponent } from './content/last-played/last-played.component';
 import { StationsComponent } from './content/stations/stations.component';
@@ -30,7 +30,8 @@ import { NotFoundComponent } from './content/not-found/not-found.component';
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

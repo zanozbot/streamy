@@ -28,7 +28,7 @@ export class LastPlayedComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public get lastSongs$(): Observable<Song> {
+  public get lastSongs$(): Observable<Song[]> {
     return this.playerService.getLastSongs$();
   }
 
