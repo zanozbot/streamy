@@ -7,25 +7,25 @@ import { Station } from 'src/models/station.model';
 export const stations: Station[] = [
   {
     name: 'Osrednje slovenska',
-    stream: 'http://stream.radioaktual.si/Aktual',
-    lastSongsPath: 'http://api2.kme.si/v2/radio-live/aktual'
+    stream: 'https://stream.radioaktual.si/Aktual',
+    lastSongsPath: 'https://api2.kme.si/v2/radio-live/aktual'
   },
   {
     name: 'Obala',
-    stream: 'http://stream.radioaktual.si/AktualO',
-    lastSongsPath: 'http://api2.kme.si/v2/radio-live/aktual-osrednja'
+    stream: 'https://stream.radioaktual.si/AktualO',
+    lastSongsPath: 'https://api2.kme.si/v2/radio-live/aktual-osrednja'
   },
   {
     name: 'Studio D',
-    stream: 'http://stream.radioaktual.si/AktualD',
-    lastSongsPath: 'http://api2.kme.si/v2/radio-live/aktual-osrednja'
+    stream: 'https://stream.radioaktual.si/AktualD',
+    lastSongsPath: 'https://api2.kme.si/v2/radio-live/aktual-osrednja'
   },
   {
     name: 'Dalmacija',
-    stream: 'http://stream.radioaktual.si/AktualDalmacija'
+    stream: 'https://stream.radioaktual.si/AktualDalmacija'
   },
   {
     name: 'Latino',
-    stream: 'http://stream.radioaktual.si/AktualLatino'
+    stream: 'https://stream.radioaktual.si/AktualLatino'
   }
 ];
