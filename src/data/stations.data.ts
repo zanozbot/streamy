@@ -7,25 +7,25 @@ import { Station } from 'src/models/station.model';
 export const stations: Station[] = [
   {
     name: 'Osrednje slovenska',
-    stream: 'http://stream.radioaktual.si/Aktual',
+    stream: 'https://aktual.netlify.com/api/Aktual',
     lastSongsPath: 'https://api2.kme.si/v2/radio-live/aktual'
   },
   {
     name: 'Obala',
-    stream: 'http://stream.radioaktual.si/AktualO',
+    stream: 'https://aktual.netlify.com/api/AktualO',
     lastSongsPath: 'https://api2.kme.si/v2/radio-live/aktual-osrednja'
   },
   {
     name: 'Studio D',
-    stream: 'http://stream.radioaktual.si/AktualD',
+    stream: 'https://aktual.netlify.com/api/AktualD',
     lastSongsPath: 'https://api2.kme.si/v2/radio-live/aktual-osrednja'
   },
   {
     name: 'Dalmacija',
-    stream: 'http://stream.radioaktual.si/AktualDalmacija'
+    stream: 'https://aktual.netlify.com/api/AktualDalmacija'
   },
   {
     name: 'Latino',
-    stream: 'http://stream.radioaktual.si/AktualLatino'
+    stream: 'https://aktual.netlify.com/api/AktualLatino'
   }
 ];
