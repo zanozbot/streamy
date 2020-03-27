@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "radio-pwa": {
+    "streamy": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/radio-pwa",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "radio-pwa:build"
+            "browserTarget": "streamy:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "radio-pwa:build:production"
+              "browserTarget": "streamy:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "radio-pwa:build"
+            "browserTarget": "streamy:build"
           }
         },
         "test": {
@@ -118,15 +118,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "radio-pwa:serve"
+            "devServerTarget": "streamy:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "radio-pwa:serve:production"
+              "devServerTarget": "streamy:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "radio-pwa"
+    }
+  },
+  "defaultProject": "streamy"
 }
