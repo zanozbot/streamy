@@ -203,7 +203,9 @@ The following sections will teach you how to find a radio station or multiple ra
 Navigate to [Internet Radio](https://www.internet-radio.com/) and pick a station. Click on the Winamp icon which should download a `listen.pls` file.
 
 ![Play in Winamp](docs/images/play-in-winamp.png)
+
 Open the `listen.pls` with your favorite text editor. You should found the following contents.
+
 ```
 [playlist]
 NumberOfEntries=1
