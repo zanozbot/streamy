@@ -2,6 +2,8 @@
 
 > Streamy is a beautifully designed Progressive Web App for streaming multiple radio stations.
 
+![Streamy cover image](docs/images/cover.png)
+
 ## Thank you
 
 Firstly, I would like to thank you for purchasing this project.
@@ -56,7 +58,7 @@ The following meta tag changes the theme color of the application, i.e. the tab 
 <meta  name="theme-color"  content="#121921">
 ```
 
-![Colorized navigation bar](https://drive.google.com/uc?export=view&id=1WCAuGSMDbQcN-XLJGaMkGeXvI7c1IJ7o)
+![Colorized application and navigation bar](docs/images/appbar.jpg)
 
 #### Styles in manifest.webmanifest
 
@@ -200,7 +202,7 @@ The following sections will teach you how to find a radio station or multiple ra
 
 Navigate to [Internet Radio](https://www.internet-radio.com/) and pick a station. Click on the Winamp icon which should download a `listen.pls` file.
 
-![Play in Winamp](https://drive.google.com/uc?export=view&id=11Rtt3i06_mgHAz3yWcej6Jc5rzXBdhv9)
+![Play in Winamp](docs/images/play-in-winamp.png)
 Open the `listen.pls` with your favorite text editor. You should found the following contents.
 ```
 [playlist]
