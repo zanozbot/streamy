@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { stations } from 'src/data/stations.data';
-import { BehaviorSubject, Observable, timer, of, race } from 'rxjs';
+import { BehaviorSubject, Observable, timer, of, merge } from 'rxjs';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { Station } from 'src/models/station.model';
 import { HttpClient } from '@angular/common/http';
@@ -35,7 +35,7 @@ export class PlayerService {
     this.station$ = new BehaviorSubject<Station>(this.getStationFromLocalStorage());
 
     // Responsible for polling data from the API every two minutes
-    this.lastSongs$ = race(timer(0, 60 * 2 * 1000), this.station$).pipe(
+    this.lastSongs$ = merge(timer(0, 60 * 2 * 1000), this.station$).pipe(
       switchMap(() =>
         this.http.get<any>(this.station$.getValue().lastSongsPath).pipe(
           // If you API return the array of object wrapped into data
