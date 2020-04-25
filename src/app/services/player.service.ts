@@ -37,12 +37,12 @@ export class PlayerService {
     // Responsible for polling data from the API every two minutes
     this.lastSongs$ = merge(timer(0, 60 * 2 * 1000), this.station$).pipe(
       switchMap(() =>
-        this.http.get<any>(this.station$.getValue().lastSongsPath).pipe(
+        this.http.jsonp<any>(this.station$.getValue().lastSongsPath, 'callback').pipe(
           // If you API return the array of object wrapped into data
-          map(res => res.data),
+          // map(res => res.data),
           // Since the data is not in the correct format we pass each element
           // into the function to correct it
-          map(res => res.filter(song => song.author)),
+          map(res => res.map(row => this.transformSHOUTcastToSong(row))),
           // If we get an error we return an empty array
           catchError(() => of([]))
         ))

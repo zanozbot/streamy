@@ -26,8 +26,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/_redirects",
-              "src/.well-known",
               "src/manifest.webmanifest"
             ],
             "styles": [
