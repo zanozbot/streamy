@@ -84,7 +84,12 @@ export class PlayerService {
   public initPlayer(player: HTMLAudioElement) {
     this.player = player;
     this.player.src = this.station$.getValue().stream;
-    this.player.play();
+    try {
+      this.player.play();
+    } catch (error) {
+      // Autoplay is not allowed if user did't interact with
+      // the site
+    }
   }
 
   /**

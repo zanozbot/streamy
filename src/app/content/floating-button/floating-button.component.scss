@@ -1,6 +1,8 @@
+@import "../../../variables.scss";
+
 .fab-button {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4rem;
+  height: 4rem;
   margin-right: 1.5rem;
 }
 
@@ -13,4 +15,18 @@
 
 button {
   transition: all 250ms ease;
+  &.is-paused {
+    animation: pulse 2s infinite;
+  }
+}
+
+@keyframes pulse {
+  0% {
+  }
+  70% {
+    box-shadow: 0 0 0 5rem transparentize($secondary, $amount: 0.5);
+  }
+    100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
 }
