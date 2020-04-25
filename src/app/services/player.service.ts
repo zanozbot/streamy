@@ -37,12 +37,12 @@ export class PlayerService {
     // Responsible for polling data from the API every two minutes
     this.lastSongs$ = merge(timer(0, 60 * 2 * 1000), this.station$).pipe(
       switchMap(() =>
-        this.http.jsonp<any>(this.station$.getValue().lastSongsPath, 'callback').pipe(
+        this.http.get<any>(this.station$.getValue().lastSongsPath).pipe(
           // If you API return the array of object wrapped into data
-          // map(res => res.data),
+          map(res => res.data),
           // Since the data is not in the correct format we pass each element
           // into the function to correct it
-          map(res => res.map(row => this.transformSHOUTcastToSong(row))),
+          map(res => res.filter(song => song.author)),
           // If we get an error we return an empty array
           catchError(() => of([]))
         ))
@@ -84,7 +84,12 @@ export class PlayerService {
   public initPlayer(player: HTMLAudioElement) {
     this.player = player;
     this.player.src = this.station$.getValue().stream;
-    this.player.play();
+    try {
+      this.player.play();
+    } catch (error) {
+      // Autoplay is not allowed if user did't interact with
+      // the site
+    }
   }
 
   /**
