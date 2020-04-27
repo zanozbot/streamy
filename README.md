@@ -1,6 +1,8 @@
 # Streamy - Multiple Radio Stations PWA
 
-> Streamy is a beautifully designed Progressive Web App for streaming multiple radio stations.
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+Streamy is a beautifully designed Progressive Web App for streaming multiple radio stations.
 
 ![Streamy cover image](docs/images/cover.png)
 
