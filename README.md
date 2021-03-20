@@ -104,7 +104,7 @@ In this section you will need to modify three files
 
 Let's take a look what exactly to modify in each file.
 
-### Texts and SEO in index.html
+### Texts and SEO in `index.html`
 
 Here are all the tags you will need to replace. Remember to only replace the `content` fields in the `<meta>` tags. The best advice would be to follow the comments above the tag you are changing.
 
@@ -141,7 +141,7 @@ Here are all the tags you will need to replace. Remember to only replace the `co
 </html>
 ```
 
-### Text in manifest.webmanifest
+### Texts in `manifest.webmanifest`
 
 You should change the fields `name` and `short_name` to reflect your application name.
 
@@ -158,6 +158,23 @@ A brief description of what the fields mean from [Google Developers](https://dev
 ```json
 "name": "Streamy - Multiple Radio Stations PWA",
 "short_name": "Streamy",
+```
+
+### Texts in `content.data.ts`
+
+These are the texts that are used in the app. Change them according to your needs.
+
+A brief description of what each field does:
+
+- `notFoundText` is shown to the user when there are no last songs available.
+- `appName` represents the app's name and is visible in the header.
+- `lastPlayedText` is shown on the last played song card.
+
+```ts
+export const notFoundText =
+  "No results found.<br>Keep calm and enjoy the radio.";
+export const appName = "Streamy";
+export const lastPlayedText = "Last played";
 ```
 
 ## Font
@@ -196,7 +213,7 @@ Don't forget to specify the font family name in the `src/variables.scss` as well
 $family-primary: "Poppins", sans-serif;
 ```
 
-## Icons and Open Graph image
+## Icons and images
 
 ### Icons
 
@@ -225,6 +242,13 @@ If you wish to rename the image don't forget to also rename it in the `src/index
   content="https://example.com/assets/images/og-image.png"
 />
 ```
+
+### Not found image
+
+This image is shown to the user when there are no last songs available. I recommend you use a SVG image.
+
+Navigate to `src/app/content/not-found` and open the `not-found.component.html` file.
+Replace the SVG image with your own.
 
 ## Radio station(s)
 
