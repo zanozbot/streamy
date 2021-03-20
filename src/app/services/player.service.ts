@@ -1,18 +1,17 @@
-import { Injectable } from '@angular/core';
-import { stations } from 'src/data/stations.data';
-import { BehaviorSubject, Observable, timer, of, merge } from 'rxjs';
-import { switchMap, map, catchError } from 'rxjs/operators';
-import { Station } from 'src/models/station.model';
-import { HttpClient } from '@angular/common/http';
-import { Song } from 'src/models/song.model';
-import { SHOUTcast } from 'src/models/shoutcast.model';
-import * as moment from 'moment';
+import { Injectable } from "@angular/core";
+import { stations } from "src/data/stations.data";
+import { BehaviorSubject, Observable, timer, of, merge } from "rxjs";
+import { switchMap, map, catchError } from "rxjs/operators";
+import { Station } from "src/models/station.model";
+import { HttpClient } from "@angular/common/http";
+import { Song } from "src/models/song.model";
+import { SHOUTcast } from "src/models/shoutcast.model";
+import * as moment from "moment";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class PlayerService {
-
   /**
    * Audio element
    */
@@ -32,20 +31,25 @@ export class PlayerService {
    * Initialize the station
    */
   constructor(private http: HttpClient) {
-    this.station$ = new BehaviorSubject<Station>(this.getStationFromLocalStorage());
+    this.station$ = new BehaviorSubject<Station>(
+      this.getStationFromLocalStorage()
+    );
 
     // Responsible for polling data from the API every two minutes
     this.lastSongs$ = merge(timer(0, 60 * 2 * 1000), this.station$).pipe(
       switchMap(() =>
-        this.http.jsonp<any>(this.station$.getValue().lastSongsPath, 'callback').pipe(
-          // If you API return the array of object wrapped into data
-          // map(res => res.data),
-          // Since the data is not in the correct format we pass each element
-          // into the function to correct it
-          map(res => res.map(row => this.transformSHOUTcastToSong(row))),
-          // If we get an error we return an empty array
-          catchError(() => of([]))
-        ))
+        this.http
+          .jsonp<any>(this.station$.getValue().lastSongsPath, "callback")
+          .pipe(
+            // If you API return the array of object wrapped into data
+            // map(res => res.data),
+            // Since the data is not in the correct format we pass each element
+            // into the function to correct it
+            map((res) => res.map((row) => this.transformSHOUTcastToSong(row))),
+            // If we get an error we return an empty array
+            catchError(() => of([]))
+          )
+      )
     );
   }
 
@@ -55,15 +59,15 @@ export class PlayerService {
    * @param element SHOUTcast row
    */
   private transformSHOUTcastToSong(row: SHOUTcast): Song {
-    const authorAndTitle = row.title.split(' - ');
+    const authorAndTitle = row.title.split(" - ");
     const author = authorAndTitle[0];
     const title = authorAndTitle[1];
-    const time = moment.unix(row.playedat).local().format('H:mm');
+    const time = moment.unix(row.playedat).local().format("H:mm");
 
     const song = {
       title,
       author,
-      time
+      time,
     };
 
     return song;
@@ -120,7 +124,7 @@ export class PlayerService {
    * or first one from your list
    */
   private getStationFromLocalStorage(): Station {
-    const station = localStorage.getItem('streamy_current_station');
+    const station = localStorage.getItem("streamy_current_station");
     if (station) {
       return JSON.parse(station);
     } else {
@@ -134,7 +138,7 @@ export class PlayerService {
    * @param station Selected station
    */
   private saveStationToLocalStorage(station: Station) {
-    localStorage.setItem('streamy_current_station', JSON.stringify(station));
+    localStorage.setItem("streamy_current_station", JSON.stringify(station));
   }
 
   /**
@@ -150,5 +154,4 @@ export class PlayerService {
   public getStationValue(): Station {
     return this.station$.value;
   }
-
 }
